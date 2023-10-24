@@ -58,6 +58,14 @@ form button {
   background-color: #ddd;
 }
 
+form button:hover {
+  background-color: white;
+}
+
+.unit {
+  padding-bottom: 7px;
+}
+
 .transactions {
   margin-top: 10px;
 }
@@ -77,7 +85,57 @@ form button {
   border-top: 1px solid #30313d;
 }
 
+.edit-transaction {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-top: 1px solid #30313d;
+}
+
+.edit-transaction input {
+  background-color: transparent;
+  border: 2px solid grey;
+  color: white;
+  padding: 5px 15px;
+  width: 95%;
+  border-radius: 8px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: white;
+  fill: white;
+}
+
+.save .btn {
+  background-color: green;
+  color: white;
+}
+
+.save .btn:hover {
+  border: 1px solid green;
+  background-color: transparent;
+  color: white;
+}
+
+.cancel .btn {
+  background-color: red;
+}
+
+.cancel .btn:hover {
+  border: 1px solid red;
+  background-color: transparent;
+  color: white
+}
+
 .transaction:first-child {
+  border-top: 0;
+}
+
+.transactionf:first-child {
+  border-top: 0;
+}
+
+.edit-transaction:first-child {
   border-top: 0;
 }
 
