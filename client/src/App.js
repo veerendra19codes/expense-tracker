@@ -109,7 +109,7 @@ function App() {
 
     <main>
 
-      <h1>Balance : ${balance}<span>{cents}</span></h1>
+      <h1>Balance : Rs. {balance}.<span>{cents}</span></h1>
 
       <form onSubmit={addNewTransaction}>
 
