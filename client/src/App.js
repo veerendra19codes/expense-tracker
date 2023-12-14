@@ -7,8 +7,6 @@ function App() {
   const [description, setDescription] = useState("");
   const [transactions, setTransactions] = useState([]);
 
-  // In your App.js
-
   const [editMode, setEditMode] = useState(false);
   const [editedName, setEditedName] = useState("");
   const [editedDatetime, setEditedDatetime] = useState("");
@@ -44,7 +42,6 @@ function App() {
     e.preventDefault();
     // this url is to  post data through from frontend to the backend and db 
     const URL = `${process.env.REACT_APP_API_URL}/transaction`;
-    console.log(URL);
                         //separator is space 
     const price = name.split(" ")[0];
     fetch( URL, {
