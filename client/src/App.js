@@ -172,29 +172,28 @@ function App() {
   );
 }
 
-export default App;
 
 const Transaction = (props) => {
   const {  name, description, price, datetime, id, deleteTransaction, updateTransaction,setEditMode,setEditedName,setEditedDatetime,setEditedPrice, setEditedDescription,
     setEditingTransactionId,editedDescription,editedDatetime,
     editedPrice,editMode,editedName,editModes,toggleEditMode } = props;
-
-  const isEditing = editModes[id];
-
-  
-  const handleEdit = () => {
-    setEditMode(true);
-    setEditedName(name);
-    setEditedDatetime(datetime);
-    setEditedPrice(price);
-    setEditedDescription(description);
-    setEditingTransactionId(id);
-    toggleEditMode(id);
-
+    
+    const isEditing = editModes[id];
+    
+    
+    const handleEdit = () => {
+      setEditMode(true);
+      setEditedName(name);
+      setEditedDatetime(datetime);
+      setEditedPrice(price);
+      setEditedDescription(description);
+      setEditingTransactionId(id);
+      toggleEditMode(id);
+      
  
-  };
-
-  const handleSave = () => {
+    };
+    
+    const handleSave = () => {
     // Send the updated data to the backend
     fetch(`${process.env.REACT_APP_API_URL}/transaction/${id}`, {
       method: "PUT",
@@ -206,14 +205,14 @@ const Transaction = (props) => {
         price: editedPrice,
       }),
     })
-      .then((response) => {
-        if (response.status === 200) {
-          // Transaction updated successfully
-          setEditMode(false);
-
-          setEditMode(false);
-          toggleEditMode(id);
-          setEditedName(name);
+    .then((response) => {
+      if (response.status === 200) {
+        // Transaction updated successfully
+        setEditMode(false);
+        
+        setEditMode(false);
+        toggleEditMode(id);
+        setEditedName(name);
           setEditedDatetime(datetime);
           setEditedPrice(price);
           setEditedDescription(description);
@@ -225,10 +224,10 @@ const Transaction = (props) => {
       .catch((error) => {
         // Handle network errors or other issues
       });
-  };
+    };
 
-  const handleCancel = () => {
-    setEditMode(false);
+    const handleCancel = () => {
+      setEditMode(false);
     toggleEditMode(id);
     setEditedName(name);
     setEditedDatetime(datetime);
@@ -236,9 +235,9 @@ const Transaction = (props) => {
     setEditedDescription(description);
     setEditingTransactionId(null);
   };
-
-
-
+  
+  
+  
   return (
     <div className="transaction">
 
@@ -252,13 +251,13 @@ const Transaction = (props) => {
               type="text"
               value={editedName}
               onChange={(e) => setEditedName(e.target.value)}
-            />
+              />
             <input
               className="description"
               type="text"
               value={editedDescription}
               onChange={(e) => setEditedDescription(e.target.value)}
-            />
+              />
           </div>
 
           <div className="right">
@@ -267,7 +266,7 @@ const Transaction = (props) => {
               type="number"
               value={editedPrice}
               onChange={(e) => setEditedPrice(e.target.value)}
-            />
+              />
             <input
               className="datetime"
               type="datetime-local"
@@ -318,3 +317,5 @@ const Transaction = (props) => {
     </div>
   );
 };
+
+export default App;
