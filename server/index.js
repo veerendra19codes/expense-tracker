@@ -69,4 +69,4 @@ app.get("/api/transactions", async(req, res) => {
     res.json(transactions);
 })
 
-app.listen(PORT, console.log("server running"));
+app.listen(PORT, console.log(`server running on PORT : ${PORT}`));
